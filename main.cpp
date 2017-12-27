@@ -28,6 +28,19 @@ int main()
 
     arraydrawer drawer(number, max, app);
 
+
+
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf"))
+    {
+    // erreur...
+    };
+
+    sf::Text help;
+    help.setString("Press R to reroll values \nPress SPACE to sort");
+    help.setCharacterSize(24);
+    help.setFont(font);
+
 	// Start the game loop
     while (app.isOpen())
     {
@@ -53,6 +66,7 @@ int main()
 
         // Draw
         drawer.draw(values);
+        app.draw(help);
 
         // Update the window
         app.display();
