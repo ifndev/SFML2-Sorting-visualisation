@@ -1,14 +1,26 @@
 #include <SFML/Graphics.hpp>
 #include "valuesarray.h"
 #include "arraydrawer.h"
+#include <iostream>
 int main()
 {
+
+    //Initializing
+    int a = 0;
+    int number = 0;
+    int max = 0;
+    do{
+    if(a>0)
+        std::cout << "\n Please enter a correct value \n \n";
+    a++;
+    std::cout << "Number of values (columns) (< or = 800 please):";
+    std::cin >> number;
+    std::cout << "\n Maximum value possible (< or = 800):";
+    std::cin >> max;
+    }while( number > 800 || max > 800 || number<1 || max<1);
+
     // Create the main window
     sf::RenderWindow app(sf::VideoMode(800, 800), "Insertion sorting visualized");
-
-    //Initializing constants
-    const int number = 20;
-    const int max = 20;
 
     valuesarray values (number, max);
     values.Generate();
